@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lightspeed Hanger</title>
-  <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/Blobby-Boi/ExtHang3r/main/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
   <style>
     body {
@@ -145,14 +144,8 @@
   <label for="iframeSelect" id="labelForIframeSelect">Select extension:</label>
   <select id="iframeSelect">
   </select>
-  <button onclick="openLol();" id="hangButton">Hang Extension!</button>
-
-  <script>
-  function openLol() {
-      window.location.href = 'lol.html'; // This will open the lol.html file
-  }
-  </script>
-    <button id="killButton" onclick="openExtensionPopup();">Kill Extension!</button>
+  <button onclick="warning();" id="hangButton">Hang Extension!</button>
+  <button id="killButton" onclick="openExtensionPopup();">Kill Extension!</button>
 </div>
 
 <div class="overlay" id="overlay">
@@ -184,7 +177,7 @@
 
     };
     
-    let hasSupportedExtensions = true;
+    let hasSupportedExtensions = false;
 
     for (const [name, url] of Object.entries(extensions)) {
       if (await checkExtensionURL(url)) {
