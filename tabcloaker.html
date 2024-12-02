@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub • Tab Cloaker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link id="favicon" rel="icon" href="default-icon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Game<span>Hub</span></div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#games">Games</a></li>
+        <li><a href="tabcloaker.html">Tab Cloaker</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Tab Cloaker</h1>
+    
+    <div class="settings">
+      <label for="tabTitle">Enter new tab title:</label>
+      <input type="text" id="tabTitle" placeholder="New Tab Title">
+      
+      <label for="faviconURL">Enter new icon URL:</label>
+      <input type="text" id="faviconURL" placeholder="URL of new icon">
+      
+      <button class="btn" id="changeSettingsBtn">Change Tab & Icon</button>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <p>if any teachers are seeing this, please dont block this 🙏</p>
+  </footer>
+
+  <script>
+    document.getElementById('changeSettingsBtn').addEventListener('click', function() {
+      const newTitle = document.getElementById('tabTitle').value;
+      const newFaviconURL = document.getElementById('faviconURL').value;
+
+      if (newTitle) {
+        document.title = newTitle;  
+      }
+
+      if (newFaviconURL) {
+        document.getElementById('favicon').href = newFaviconURL;  
+      }
+    });
+  </script>
+
+<script>
+  window.onload = function() {
+    const savedTitle = localStorage.getItem('tabTitle');
+    const savedFavicon = localStorage.getItem('faviconURL');
+
+    if (savedTitle) {
+      document.title = savedTitle;
+    }
+
+    if (savedFavicon) {
+      document.getElementById('favicon').href = savedFavicon;  
+    }
+  };
+</script>
+</body>
+</html>
