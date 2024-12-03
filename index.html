@@ -49,7 +49,8 @@
     </div>
 
     <div class="span">⠀</div>
-    <button class="btn" data-load-more>Show More</button>
+    <button class="btn" id="buttonthing" data-load-more>Show More</button>
+    
   </section>
 
   <script>
@@ -63,7 +64,6 @@
         { img: 'tankstars.jpeg', title: 'Tank Stars' },
         { img: 'stickmanhook.jpeg', title: 'Stickman Hook' },
         { img: '2048.jpeg', title: '2048' },
-        { img: 'wormaxio.jpeg', title: 'Wormax.io' },
         { img: 'madalinstuntcars2.jpeg', title: 'Madalin Stunt Cars 2' },
         { img: 'run3.jpeg', title: 'Run 3' },
         { img: 'crossyroad.jpeg', title: 'Crossy Road' },
@@ -72,9 +72,12 @@
         { img: 'bubbletrouble.jpeg', title: 'Bubble Trouble' },
         { img: 'cookieclicker.jpeg', title: 'Cookie Clicker' },
         { img: 'templerun.jpeg', title: 'Temple Run' },
-      ];
+        { img: 'minecraft.jpeg', title: 'Minecraft' },
 
-      newGames.forEach(game => {
+      ];
+      var button = document.getElementById('buttonthing');
+      button.parentNode.removeChild(button);
+        newGames.forEach(game => {
         const gameCard = document.createElement('div');
         gameCard.className = 'game-card';
         gameCard.innerHTML = `
@@ -86,7 +89,7 @@
   
         gameCard.style.opacity = '0';
         gameGrid.appendChild(gameCard);
-  
+        
         setTimeout(() => {
           gameCard.style.transition = 'opacity 0.5s ease-in-out';
           gameCard.style.opacity = '1';
@@ -101,8 +104,8 @@
 
   <script>
     window.onload = function() {
-      const savedTitle = localStorage.getItem('tabTitle');
-      const savedFavicon = localStorage.getItem('faviconURL');
+      const savedTitle = indexedDB.getItem('tabTitle');
+      const savedFavicon = indexedDB.getItem('faviconURL');
 
       if (savedTitle) {
         document.title = savedTitle;
