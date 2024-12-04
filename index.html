@@ -14,7 +14,7 @@
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#games">Games</a></li>
-        <li><a href="tabcloaker.html">Tab Cloaker</a></li>
+        <li><a href="tabcloaker.html">Tab Cloaker [WIP!!]</a></li>
       </ul>
     </nav>
   </header>
@@ -28,24 +28,34 @@
   <section class="games" id="games">
     <h2>Games</h2>
     <div class="game-grid">
+      <a href="iframe.html">
+
       <div class="game-card">
         <img src="subway.jpeg" alt="Subway Surfers">
         <div class="game-card-content">
           <h3>🔥Subway Surfers</h3>
         </div>
       </div>
+
+    </a>
+    <a href="iframe.html">
       <div class="game-card">
         <img src="slope.jpeg" alt="Slope">
         <div class="game-card-content">
           <h3>️‍🔥 Slope</h3>
         </div>
       </div>
+    </a>
+    <a href="iframe.html">
+
       <div class="game-card">
-        <img src="drivemad.jpeg" alt="Drive Mad">
+        <img src="drivemad.jpeg"  alt="Drive Mad">
         <div class="game-card-content">
           <h3>️‍🔥 Drive Mad</h3>
         </div>
       </div>
+</a>
+     
     </div>
 
     <div class="span">⠀</div>
@@ -54,48 +64,51 @@
   </section>
 
   <script>
-    document.querySelector('[data-load-more]').addEventListener('click', () => {
-      const gameGrid = document.querySelector('.game-grid');
-      const newGames = [
-        { img: 'flappybird.jpeg', title: 'Flappy Bird' },
-        { img: 'dogeminer.jpeg', title: 'Doge Miner' },
-        { img: 'amongus.jpeg', title: 'Among Us' },
-        { img: 'tetris.jpeg', title: 'Tetris' },
-        { img: 'tankstars.jpeg', title: 'Tank Stars' },
-        { img: 'stickmanhook.jpeg', title: 'Stickman Hook' },
-        { img: '2048.jpeg', title: '2048' },
-        { img: 'madalinstuntcars2.jpeg', title: 'Madalin Stunt Cars 2' },
-        { img: 'run3.jpeg', title: 'Run 3' },
-        { img: 'crossyroad.jpeg', title: 'Crossy Road' },
-        { img: 'minesweeper.jpeg', title: 'Minesweeper' },
-        { img: 'doodlejump.jpeg', title: 'Doodle Jump' },
-        { img: 'bubbletrouble.jpeg', title: 'Bubble Trouble' },
-        { img: 'cookieclicker.jpeg', title: 'Cookie Clicker' },
-        { img: 'templerun.jpeg', title: 'Temple Run' },
-        { img: 'minecraft.jpeg', title: 'Minecraft' },
+ document.querySelector('[data-load-more]').addEventListener('click', () => {
+  const gameGrid = document.querySelector('.game-grid');
+  const newGames = [
+    { img: 'flappybird.jpeg', title: 'Flappy Bird', link: 'iframe.html' },
+    { img: 'dogeminer.jpeg', title: 'Doge Miner', link: 'iframe.html' },
+    { img: 'amongus.jpeg', title: 'Among Us', link: 'iframe.html' },
+    { img: 'tetris.jpeg', title: 'Tetris', link: 'iframe.html' },
+    { img: 'tankstars.jpeg', title: 'Tank Stars', link: 'iframe.html' },
+    { img: 'stickmanhook.jpeg', title: 'Stickman Hook', link: 'iframe.html' },
+    { img: '2048.jpeg', title: '2048', link: 'iframe.html' },
+    { img: 'madalinstuntcars2.jpeg', title: 'Madalin Stunt Cars 2', link: 'iframe.html' },
+    { img: 'run3.jpeg', title: 'Run 3', link: 'iframe.html' },
+    { img: 'crossyroad.jpeg', title: 'Crossy Road', link: 'iframe.html' },
+    { img: 'minesweeper.jpeg', title: 'Minesweeper', link: 'iframe.html' },
+    { img: 'doodlejump.jpeg', title: 'Doodle Jump', link: 'iframe.html' },
+    { img: 'cookieclicker.jpeg', title: 'Cookie Clicker', link: 'iframe.html' },
+    { img: 'templerun.jpeg', title: 'Temple Run', link: 'iframe.html' },
+    { img: 'minecraft.jpeg', title: 'Minecraft', link: 'iframe.html' },
+    { img: 'hl.jpeg', title: 'Half Life', link: 'hiframe.html' }
+  ];
 
-      ];
-      var button = document.getElementById('buttonthing');
-      button.parentNode.removeChild(button);
-        newGames.forEach(game => {
-        const gameCard = document.createElement('div');
-        gameCard.className = 'game-card';
-        gameCard.innerHTML = `
-          <img src="${game.img}" alt="${game.title}">
-          <div class="game-card-content">
-            <h3>${game.title}</h3>
-          </div>
-        `;
+  var button = document.getElementById('buttonthing');
+  button.parentNode.removeChild(button);
   
-        gameCard.style.opacity = '0';
-        gameGrid.appendChild(gameCard);
-        
-        setTimeout(() => {
-          gameCard.style.transition = 'opacity 0.5s ease-in-out';
-          gameCard.style.opacity = '1';
-        }, 50);
-      });
-    });
+  newGames.forEach(game => {
+    const gameCard = document.createElement('div');
+    gameCard.className = 'game-card';
+    gameCard.innerHTML = `
+      <a href="${game.link}">
+        <img src="${game.img}" alt="${game.title}">
+        <div class="game-card-content">
+          <h3>${game.title}</h3>
+        </div>
+      </a>
+    `;
+    
+    gameCard.style.opacity = '0';
+    gameGrid.appendChild(gameCard);
+    
+    setTimeout(() => {
+      gameCard.style.transition = 'opacity 0.5s ease-in-out';
+      gameCard.style.opacity = '1';
+    }, 50);
+  });
+});
   </script>
 
   <footer class="footer">

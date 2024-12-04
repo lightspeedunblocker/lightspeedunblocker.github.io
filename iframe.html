@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home • GameHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Game<span>Hub</span></div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#games">Games</a></li>
+        <li><a href="tabcloaker.html">Tab Cloaker [WIP!!]</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="iframe-container">
+    <iframe id="gameIframe" src="about:blank" frameborder="0"></iframe>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      const iframe = document.getElementById("gameIframe");
+      const targetUrl = getQueryParam("l");
+  
+      if (targetUrl) {
+        iframe.src = `https://${targetUrl}`;
+      } else {
+        iframe.src = "about:blank"; 
+      }
+    });
+  
+    function toggleFullscreen() {
+      const container = document.querySelector('.iframe-container');
+  
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+          console.error(`Failed to enter fullscreen mode: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen().catch(err => {
+          console.error(`Failed to exit fullscreen mode: ${err.message}`);
+        });
+      }
+    }
+  
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.fullscreenElement) {
+        document.exitFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
